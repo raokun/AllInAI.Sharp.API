@@ -3,35 +3,29 @@ using AllInAI.Sharp.API.IService;
 using AllInAI.Sharp.API.Req;
 using AllInAI.Sharp.API.Res;
 using System.Net.Http.Json;
+using AllInAI.Sharp.API.Enums;
+using AllInAI.Sharp.API.Utils;
 
 namespace AllInAI.Sharp.API.Service
 {
     public class OpenAIService : IChatService {
-        private readonly HttpClient _httpClient;
+        
 
-        public OpenAIService(HttpClient httpClient) {
-            _httpClient = httpClient;
-        }
-        public OpenAIService(AuthOption option,HttpClient? httpClient = null) {
-
-            if (httpClient == null) {
-                _httpClient = new HttpClient();
-            }
-            else {
-                _httpClient = httpClient;
-            }
+        public async Task<CompletionRes> Completion(HttpClient _httpClient,CompletionReq req, CancellationToken cancellationToken = default) {
+            string url = "/v1/chat/completions";
+            var res=await _httpClient.PostAsJsonAsync(url,req);
+            return await _httpClient.PostAndReadAsAsync<CompletionRes>(url, req, cancellationToken);
         }
 
-        public CompletionRes Completion(CompletionReq req) {
+        public IAsyncEnumerable<CompletionRes> CompletionStream(HttpClient _httpClient,CompletionReq req, CancellationToken cancellationToken = default) {
             throw new NotImplementedException();
         }
 
-        public IAsyncEnumerable<CompletionRes> CompletionStream(CompletionReq req) {
-            throw new NotImplementedException();
-        }
-
-        private async Task<OpenAICompletionRes> ChatCompletions(OpenAICompletionReq req) {
-            _httpClient.PostAsJsonAsync();
+        private async Task<OpenAICompletionRes> ChatCompletions(HttpClient _httpClient,OpenAICompletionReq req)
+        {
+            
+            string url = "";
+            var res=await _httpClient.PostAsJsonAsync(url,req);
             return new OpenAICompletionRes();
         }
     }

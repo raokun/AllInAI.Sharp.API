@@ -7,5 +7,7 @@ using System.Threading.Tasks;
 namespace AllInAI.Sharp.API.Enums {
     public enum AITypeEnum {
         OpenAi = 1,
+        Baidu =2,
+        Ali=3,
     }
 }

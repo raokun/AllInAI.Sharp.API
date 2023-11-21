@@ -16,13 +16,13 @@ namespace AllInAI.Sharp.API.IService {
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
-        CompletionRes Completion(CompletionReq req);
+        Task<CompletionRes> Completion(HttpClient _httpClient,CompletionReq req, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 聊天接口（流式传输）
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
-        IAsyncEnumerable<CompletionRes> CompletionStream(CompletionReq req);
+        IAsyncEnumerable<CompletionRes> CompletionStream(HttpClient _httpClient,CompletionReq req, CancellationToken cancellationToken = default);
     }
 }
