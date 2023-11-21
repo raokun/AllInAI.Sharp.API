@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33417.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllInAI.Sharp.API", "AllInAI.Sharp.API.csproj", "{14E67268-B987-4059-9ABF-3818327153F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14E67268-B987-4059-9ABF-3818327153F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E67268-B987-4059-9ABF-3818327153F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E67268-B987-4059-9ABF-3818327153F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E67268-B987-4059-9ABF-3818327153F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {230BB179-4384-4D82-A123-B3257DD36107}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Universal AI Model Interface Invocation SDK</Title>
+    <Authors>raokun</Authors>
+    <PackageId>AllInAI.Sharp.API</PackageId>
+    <PackageIcon>logo.png</PackageIcon>
+    <Description>c#使用的AI模型调用SDK，整合OpenAI，chatGLM，文心千帆，stable-diffusion 等</Description>
+    <PackageProjectUrl>https://github.com/raokun/AllInAI.Sharp.API.Sample</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Administrator\Desktop\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
