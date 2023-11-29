@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AllInAI.Sharp.API.Res {
-    internal class OpenAICompletionRes {
+    public class OpenAICompletionRes {
         [JsonPropertyName("object")] public string? ObjectTypeName { get; set; }
         [JsonPropertyName("model")] public string Model { get; set; }
 

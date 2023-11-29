@@ -3,6 +3,7 @@ using AllInAI.Sharp.API.Enums;
 using AllInAI.Sharp.API.IService;
 using AllInAI.Sharp.API.Req;
 using AllInAI.Sharp.API.Res;
+using System.Net.Http.Json;
 
 namespace AllInAI.Sharp.API.Service;
 
@@ -43,10 +44,10 @@ public class ChatService
     
     public async Task<CompletionRes> Completion(CompletionReq req)
     {
-        return await _chatService.Completion(_httpClient, req);
+        return await _chatService.Completion(_httpClient, req, accessToken);
     }
 
     public IAsyncEnumerable<CompletionRes> CompletionStream(CompletionReq req) {
-        return _chatService.CompletionStream(_httpClient, req);
+        return _chatService.CompletionStream(_httpClient, req, accessToken);
     }
 }

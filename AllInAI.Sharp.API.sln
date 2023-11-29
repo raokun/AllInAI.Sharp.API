@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33417.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllInAI.Sharp.API", "AllInAI.Sharp.API.csproj", "{14E67268-B987-4059-9ABF-3818327153F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllInAI.Sharp.API", "AllInAI.Sharp.API.csproj", "{14E67268-B987-4059-9ABF-3818327153F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllInAI.Sharp.APITests", "..\AllInAI.Sharp.APITests\AllInAI.Sharp.APITests.csproj", "{AC4173EC-058A-468B-91FE-44140BA8A016}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{14E67268-B987-4059-9ABF-3818327153F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14E67268-B987-4059-9ABF-3818327153F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14E67268-B987-4059-9ABF-3818327153F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC4173EC-058A-468B-91FE-44140BA8A016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4173EC-058A-468B-91FE-44140BA8A016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4173EC-058A-468B-91FE-44140BA8A016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4173EC-058A-468B-91FE-44140BA8A016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

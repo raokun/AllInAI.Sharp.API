@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AllInAI.Sharp.API.Res {
-    internal record UsageRes {
+    public record UsageRes {
         [JsonPropertyName("prompt_tokens")] 
         public int PromptTokens { get; set; }
 

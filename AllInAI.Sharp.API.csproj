@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -12,6 +12,9 @@
     <Description>c#使用的AI模型调用SDK，整合OpenAI，chatGLM，文心千帆，stable-diffusion 等</Description>
     <PackageProjectUrl>https://github.com/raokun/AllInAI.Sharp.API.Sample</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <Version>1.0.1-preview.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

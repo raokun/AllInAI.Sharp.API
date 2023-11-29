@@ -17,10 +17,10 @@ namespace AllInAI.Sharp.API.Req {
         [JsonPropertyName("model")]
         public string Model { get; set; }
         [JsonPropertyName("temperature")]
-        public double Temperature { get; set; } = 0;
+        public double? Temperature { get; set; }
 
         [JsonPropertyName("top_p")]
-        public double TopP { get; set; } = 0;
+        public double? TopP { get; set; }
 
         [JsonPropertyName("n")]
         public int? N { get; set; }
@@ -35,10 +35,10 @@ namespace AllInAI.Sharp.API.Req {
         public int? MaxTokens { get; set; }
 
         [JsonPropertyName("presence_penalty")]
-        public double PresencePenalty { get; set; } = 0;
+        public double? PresencePenalty { get; set; }
 
         [JsonPropertyName("frequency_penalty")]
-        public double FrequencyPenalty { get; set; } = 0;
+        public double? FrequencyPenalty { get; set; }
 
         [JsonPropertyName("logit_bias")]
         public IDictionary<int, int> TokenSelectionBiases { get; set; } = new Dictionary<int, int>();

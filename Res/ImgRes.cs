@@ -5,6 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AllInAI.Sharp.API.Res {
-    internal class ImgRes {
+    public class ImgRes {
     }
 }
