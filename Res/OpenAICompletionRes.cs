@@ -6,8 +6,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AllInAI.Sharp.API.Res {
-    public class OpenAICompletionRes {
-        [JsonPropertyName("object")] public string? ObjectTypeName { get; set; }
+    public record OpenAICompletionRes : BaseRes {
         [JsonPropertyName("model")] public string Model { get; set; }
 
         [JsonPropertyName("choices")] public List<ChatChoiceRes> Choices { get; set; }

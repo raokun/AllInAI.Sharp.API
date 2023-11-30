@@ -10,6 +10,7 @@ namespace AllInAI.Sharp.API.Constant {
     /// </summary>
     public static class BaiduModels {
         public static string ApiUrl = "/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/";
+        public static string SDXLApiUrl = "/rpc/2.0/ai_custom/v1/wenxinworkshop/text2image/sd_xl";
 
         public static string ERNIE_Bot_4 = "completions_pro";
         public static string ERNIE_Bot_8K = "ernie_bot_8k";

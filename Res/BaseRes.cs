@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 namespace AllInAI.Sharp.API.Res {
     public record BaseRes {
         [JsonPropertyName("object")] public string? ObjectTypeName { get; set; }
-        public bool Successful => Error == null;
+        public bool Successful => (Error == null && ErrorCode == null);
         [JsonPropertyName("error")] public Error? Error { get; set; }
+
+        [JsonPropertyName("error_code")] public int? ErrorCode { get; set; }
+
+        [JsonPropertyName("error_msg")] public string? ErrorMsg { get; set; }
     }
 
     public record Error {

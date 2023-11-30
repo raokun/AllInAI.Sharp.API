@@ -22,8 +22,6 @@ namespace AllInAI.Sharp.API.Res {
 
         [JsonPropertyName("need_clear_history")] public bool NeedClearHistory { get; set; }
 
-        [JsonPropertyName("error_code")] public int? ErrorCode { get; set; }
-
-        [JsonPropertyName("error_msg")] public string? ErrorMsg { get; set; }
+       
     }
 }

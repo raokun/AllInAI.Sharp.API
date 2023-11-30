@@ -9,5 +9,7 @@ namespace AllInAI.Sharp.API.Enums {
         OpenAi = 1,
         Baidu =2,
         Ali=3,
+        SD=4,
+        MJ=5
     }
 }

@@ -9,15 +9,19 @@
     <Authors>raokun</Authors>
     <PackageId>AllInAI.Sharp.API</PackageId>
     <PackageIcon>logo.png</PackageIcon>
-    <Description>c#使用的AI模型调用SDK，整合OpenAI，chatGLM，文心千帆，stable-diffusion 等</Description>
+    <Description>c#使用的AI模型调用SDK，已整合OpenAI，chatGLM，文心千帆，同义千问，stable-diffusion 等</Description>
     <PackageProjectUrl>https://github.com/raokun/AllInAI.Sharp.API.Sample</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Version>1.0.1-preview.1</Version>
+    <Version>1.1.0-preview1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\AllInAI.Sharp.API.Sample\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="C:\Users\Administrator\Desktop\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

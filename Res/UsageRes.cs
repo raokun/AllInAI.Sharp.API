@@ -14,6 +14,6 @@ namespace AllInAI.Sharp.API.Res {
         public int? CompletionTokens { get; set; }
 
         [JsonPropertyName("total_tokens")]
-        public int TotalTokens { get; set; }
+        public int? TotalTokens { get; set; }
     }
 }

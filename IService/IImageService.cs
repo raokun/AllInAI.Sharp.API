@@ -16,6 +16,6 @@ namespace AllInAI.Sharp.API.IService {
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
-        ImgRes Txt2Img(Txt2ImgReq req);
+        Task<ImgRes> Txt2Img(HttpClient _httpClient, Txt2ImgReq req, string? accesstoken = null, CancellationToken cancellationToken = default);
     }
 }
