@@ -1,10 +1,6 @@
-<div align="center">
-	<h1>AllInAI.Sharp.API</h1>
-</div>
+# AllInAI.Sharp.API
 
-![](https://img.shields.io/github/stars/raokun/AllInAI.Sharp.API.Sample) ![](https://img.shields.io/github/forks/raokun/AllInAI.Sharp.API.Sample)
-
-English | [中文简介](README-CN.md)
+English | [中文简介](https://github.com/raokun/AllInAI.Sharp.API.Sample/blob/main/README-CN.md)
 
 AllInAI.Sharp.API is an SDK that calls language models from various platforms, and it helps users quickly integrate with major models. It has integrated OpenAI, chatGLM, Wenxin Qianfan, Synonymous Qianwen, stable-diffusion, etc. It supports setting reverse proxies and streaming interfaces.
 The AllInAI SDK integrates unified input and output parameters in the chat and image interfaces, making it easy to call.
@@ -25,6 +21,7 @@ The AllInAI SDK integrates unified input and output parameters in the chat and i
    - AIType: The model type, corresponds to the Enums.AITypeEnum enumeration
 
 2. Call the API
+
 1. chat
 ```c#
 AuthOption authOption = new AuthOption() { Key = "sk-***", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
@@ -56,18 +53,4 @@ ImgRes imgRes = await imgService.Txt2Img(imgReq);
 3. Commit with a commit message, like "solve issue xxx, add xxx"
 4. Create a Pull Request
 If you would like to contribute, feel free to submit Pull Requests or give us Issues.
-
-## Donation
-
-If you find this project helpful, you can buy raokun a coffee to show support. raokun's open-source contribution relies on your support and encouragement.
-  <div style="display:flex;">
-  	<div style="padding-right:24px;">
-  		<p>WeChat</p>
-      <img src="https://www.raokun.top/upload/2023/04/%E5%BE%AE%E4%BF%A1%E6%94%B6%E6%AC%BE.jpg" style="width:200px" />
-  	</div>
-	<div style="padding-right:24px;">
-  		<p>Alipay</p>
-      <img src="https://www.raokun.top/upload/2023/04/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE.jpg" style="width:200px" />
-  	</div>
-  </div>
 

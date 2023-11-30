@@ -1,8 +1,4 @@
-﻿<div align="center">
-	<h1>AllInAI.Sharp.API</h1>
-</div>
-
-![](https://img.shields.io/github/stars/raokun/AllInAI.Sharp.API.Sample) ![](https://img.shields.io/github/forks/raokun/AllInAI.Sharp.API.Sample)
+﻿# AllInAI.Sharp.API
 
 中文简介 | [English](README.md)
 
@@ -58,18 +54,4 @@ Create Feature/name(your github id)/issuexxx branch
 Commit with commit message, like solve issue xxx，add xxx
 Create Pull Request
 如果你希望参与贡献，欢迎 Pull Requests,或给我们 Issues
-## 捐赠
-
-如果你觉得这个项目对你有帮助，可以请 raokun 喝杯咖啡表示支持，raokun 开源的动力离不开各位的支持和鼓励。
-
-  <div style="display:flex;">
-  	<div style="padding-right:24px;">
-  		<p>微信</p>
-      <img src="https://www.raokun.top/upload/2023/04/%E5%BE%AE%E4%BF%A1%E6%94%B6%E6%AC%BE.jpg" style="width:200px" />
-  	</div>
-	<div style="padding-right:24px;">
-  		<p>支付宝</p>
-      <img src="https://www.raokun.top/upload/2023/04/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%B6%E6%AC%BE.jpg" style="width:200px" />
-  	</div>
-  </div>
 
