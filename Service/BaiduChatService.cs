@@ -40,9 +40,10 @@ public class BaiduChatService: IChatService
                 // When the response is good, each line is a serializable CompletionCreateRequest
                 res = JsonSerializer.Deserialize<BaiDuCompletionRes>(line);
                 // Exit the loop if the stream is done
-                if (res.IsEnd = true) {
-                    break;
-                }
+                // if (res.IsEnd = true) {
+                //     yield return res;
+                //     break;
+                // }
             }
             catch (Exception) {
                 // When the API returns an error, it does not come back as a block, it returns a single character of text ("{").

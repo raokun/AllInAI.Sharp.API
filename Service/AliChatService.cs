@@ -56,9 +56,9 @@ public class AliChatService: IChatService
                 // When the response is good, each line is a serializable CompletionCreateRequest
                 var completionRes = JsonSerializer.Deserialize<AliCompletionRes>(line);
                 // Exit the loop if the stream is done
-                if (completionRes.Output.FinishReason == "stop" || completionRes.Output.Choices[0].FinishReason == "stop") {
-                    break;
-                }
+                // if (completionRes.Output.FinishReason == "stop" || completionRes.Output.Choices[0].FinishReason == "stop") {
+                //     break;
+                // }
                 res = GetCompletion(completionRes);
                 res.Model = req.Model;
             }
