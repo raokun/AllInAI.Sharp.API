@@ -25,4 +25,8 @@ namespace AllInAI.Sharp.API.Res {
 
         [JsonPropertyName("type")] public string? Type { get; set; }
     }
+
+    public record DataBaseRes<T> : BaseRes {
+        [JsonPropertyName("data")] public T? Data { get; set; }
+    }
 }

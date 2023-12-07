@@ -6,6 +6,7 @@ using AllInAI.Sharp.API.Res;
 using AllInAI.Sharp.API.Utils;
 using System.Text.Json;
 using System;
+using AllInAI.Sharp.API.Dto;
 
 namespace AllInAI.Sharp.API.Service;
 
@@ -14,7 +15,8 @@ public class BaiduChatService: IChatService
     public async Task<CompletionRes> Completion(HttpClient _httpClient,CompletionReq req, string? accesstoken = null, CancellationToken cancellationToken = default)
     {
         string url =$"{BaiduModels.ApiUrl}{req.Model}?access_token={accesstoken}";
-        BaiDuCompletionRes completionRes = await _httpClient.PostAndReadAsAsync<BaiDuCompletionRes>(url, req, cancellationToken);
+        var baidu = GetBaiduCompletionReq(req);
+        BaiDuCompletionRes completionRes = await _httpClient.PostAndReadAsAsync<BaiDuCompletionRes>(url, baidu, cancellationToken);
         return completionRes;
     }
 
@@ -22,7 +24,8 @@ public class BaiduChatService: IChatService
     {
         string url = $"{BaiduModels.ApiUrl}{req.Model}?access_token={accesstoken}";
         req.Stream = true;
-        using var response = _httpClient.PostAsStreamAsync(url, req, cancellationToken);
+        var baidu = GetBaiduCompletionReq(req);
+        using var response = _httpClient.PostAsStreamAsync(url, baidu, cancellationToken);
         await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
         using var reader = new StreamReader(stream);
         while (!reader.EndOfStream) {
@@ -56,4 +59,26 @@ public class BaiduChatService: IChatService
             }
         }
     }
+
+    private BaiduCompletionReq GetBaiduCompletionReq(CompletionReq req) {
+        BaiduCompletionReq baidu = new BaiduCompletionReq();
+        baidu.Messages = req.Messages;
+        baidu.Model = req.Model;
+        baidu.Temperature = req.Temperature;
+        baidu.TopP= req.TopP;
+        baidu.N= req.N;
+        baidu .Stream = req.Stream;
+        baidu.StopSequences = req.StopSequences;
+        baidu.MaxTokens= req.MaxTokens;
+        baidu.PresencePenalty = req.PresencePenalty;
+        baidu.FrequencyPenalty = req.FrequencyPenalty;
+        baidu.TokenSelectionBiases = req.TokenSelectionBiases;
+        MessageDto system= req.Messages.Where(m => m.Role.Contains("system") || m.Role.Contains("System") || m.Role.Contains("SYSTEM"))?.FirstOrDefault();
+        if(system != null) {
+            baidu.System = system.Content;
+            req.Messages.Remove(system);
+        }
+        return baidu;
+    }
+
 }

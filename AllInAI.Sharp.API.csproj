@@ -10,11 +10,12 @@
     <PackageId>AllInAI.Sharp.API</PackageId>
     <PackageIcon>logo.png</PackageIcon>
     <Description>c#使用的AI模型调用SDK，已整合OpenAI，chatGLM，文心千帆，同义千问，stable-diffusion 等</Description>
-    <PackageProjectUrl>https://github.com/raokun/AllInAI.Sharp.API.Sample</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/raokun/AllInAI.Sharp.API</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <Version>1.1.2</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.1.4</Version>
+    <RepositoryUrl>https://github.com/raokun/AllInAI.Sharp.API</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
