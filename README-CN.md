@@ -1,6 +1,9 @@
 ﻿# AllInAI.Sharp.API
 [![AllInAI.Sharp.API](https://img.shields.io/nuget/v/AllInAI.Sharp.API?style=for-the-badge)](https://www.nuget.org/packages/AllInAI.Sharp.API/)
 
+![](https://img.shields.io/github/stars/raokun/AllInAI.Sharp.API) ![](https://img.shields.io/github/forks/raokun/AllInAI.Sharp.API)
+
+
 中文简介 | [English](README.md)
 
 [版本更新文档](/Changes/changes.md) | [接口示例文档](/Test/sampleUsage.md) 
