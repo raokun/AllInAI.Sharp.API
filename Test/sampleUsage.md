@@ -269,7 +269,7 @@ public async Task OpenAISpeechTest() {
 }
 ```
 
-### 1.Transcriptions
+### 2.Transcriptions
 
 #### 1.OpenAI
 ```c#
@@ -281,6 +281,25 @@ public async Task OpenAITranscriptionsTest() {
         AudioService audioService = new AudioService(authOption) ;
         AudioCreateTranscriptionReq req = new AudioCreateTranscriptionReq() { File=audioData,FileName= "response.mp3",Model= "whisper-1" ,Language="zh"};
         AudioTranscriptionRes res = await audioService.Transcriptions(req);
+    }
+    catch (Exception e) {
+        Console.WriteLine(e.Message);
+    }
+}
+```
+
+### 2.Translations
+
+#### 1.OpenAI
+```c#
+public async Task OpenAITranslationsTest() {
+    try {
+        AuthOption authOption = new AuthOption() { Key = "sk-**", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
+        // 读取音频文件的二进制内容
+        byte[] audioData = File.ReadAllBytes("C:/Users/Administrator/Desktop/response.mp3");
+        AudioService audioService = new AudioService(authOption) ;
+        AudioCreateTranscriptionReq req = new AudioCreateTranscriptionReq() { File=audioData,FileName= "response.mp3",Model= "whisper-1" ,Language="zh"};
+        AudioTranscriptionRes res = await audioService.Translations(req);
     }
     catch (Exception e) {
         Console.WriteLine(e.Message);

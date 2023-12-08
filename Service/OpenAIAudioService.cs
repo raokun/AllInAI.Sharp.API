@@ -19,6 +19,15 @@ namespace AllInAI.Sharp.API.Service {
 
         public async Task<AudioTranscriptionRes> Transcriptions(HttpClient _httpClient, AudioCreateTranscriptionReq req, string? accesstoken = null, CancellationToken cancellationToken = default) {
             string url = "/v1/audio/transcriptions";
+            return await Trans(url, _httpClient, req, accesstoken, cancellationToken);
+        }
+
+        public async Task<AudioTranscriptionRes> Translations(HttpClient _httpClient, AudioCreateTranscriptionReq req, string? accesstoken = null, CancellationToken cancellationToken = default) {
+            string url = "/v1/audio/translations";
+            return await Trans(url, _httpClient, req, accesstoken, cancellationToken);
+        }
+
+        private async Task<AudioTranscriptionRes> Trans(string uri,HttpClient _httpClient, AudioCreateTranscriptionReq req, string? accesstoken = null, CancellationToken cancellationToken = default) {
             if (req is { File: not null, FileStream: not null }) {
                 throw new ArgumentException("Either File or FileStream must be set, but not both.");
             }
@@ -27,10 +36,10 @@ namespace AllInAI.Sharp.API.Service {
             if (req.File != null) {
                 content.Add(new ByteArrayContent(req.File), "file", req.FileName);
             }
-            else if(req.FileStream != null) {
+            else if (req.FileStream != null) {
                 content.Add(new StreamContent(req.FileStream), "file", req.FileName);
             }
-            if(req.Prompt != null) {
+            if (req.Prompt != null) {
                 content.Add(new StringContent(req.Prompt), "prompt");
             }
             if (req.Language != null) {
@@ -42,7 +51,7 @@ namespace AllInAI.Sharp.API.Service {
             if (req.Temperature != null) {
                 content.Add(new StringContent(req.Temperature.ToString()!), "temperature");
             }
-            return await _httpClient.PostFileAndReadAsAsync<AudioTranscriptionRes>(url, content, cancellationToken);
+            return await _httpClient.PostFileAndReadAsAsync<AudioTranscriptionRes>(uri, content, cancellationToken);
         }
     }
 }

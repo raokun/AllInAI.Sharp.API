@@ -37,13 +37,30 @@ namespace AllInAI.Sharp.API.Service {
         }
 
         private string? accessToken;
-
-         public async Task<AudioSpeechRes<T>> Speech<T>(AudioSpeechReq req) {
+        /// <summary>
+        /// text to audio
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public async Task<AudioSpeechRes<T>> Speech<T>(AudioSpeechReq req) {
             return await _audioService.Speech<T>(_httpClient, req, accessToken);
         }
-
+        /// <summary>
+        /// audio to the input language
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
         public async Task<AudioTranscriptionRes> Transcriptions( AudioCreateTranscriptionReq req) {
             return await _audioService.Transcriptions(_httpClient, req, accessToken);
+        }
+        /// <summary>
+        /// audio to the english
+        /// </summary>
+        /// <param name="req"></param>
+        /// <returns></returns>
+        public async Task<AudioTranscriptionRes> Translations(AudioCreateTranscriptionReq req) {
+            return await _audioService.Translations(_httpClient, req, accessToken);
         }
     }
 }

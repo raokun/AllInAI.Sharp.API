@@ -2,7 +2,9 @@
 
 [![AllInAI.Sharp.API](https://img.shields.io/nuget/v/AllInAI.Sharp.API?style=for-the-badge)](https://www.nuget.org/packages/AllInAI.Sharp.API/)
 
-English | [中文简介](README-CN.md)
+English | [中文简介](https://github.com/raokun/AllInAI.Sharp.API/blob/main/README-CN.md)
+
+[Version](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Changes/changes.md) | [Usage](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Test/sampleUsage.md) 
 
 AllInAI.Sharp.API is an SDK that calls language models from various platforms, and it helps users quickly integrate with major models. It has integrated OpenAI, chatGLM, Wenxin Qianfan, Synonymous Qianwen, stable-diffusion, etc. It supports setting reverse proxies and streaming interfaces.
 The AllInAI SDK integrates unified input and output parameters in the chat and image interfaces, making it easy to call.

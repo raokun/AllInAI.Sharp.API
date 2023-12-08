@@ -14,7 +14,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.4</Version>
+    <Version>1.1.5</Version>
     <RepositoryUrl>https://github.com/raokun/AllInAI.Sharp.API</RepositoryUrl>
   </PropertyGroup>
 

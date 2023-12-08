@@ -11,5 +11,7 @@ namespace AllInAI.Sharp.API.IService {
         Task<AudioSpeechRes<T>> Speech<T>( HttpClient _httpClient, AudioSpeechReq req, string? accesstoken = null, CancellationToken cancellationToken = default);
 
         Task<AudioTranscriptionRes> Transcriptions(HttpClient _httpClient, AudioCreateTranscriptionReq req, string? accesstoken = null, CancellationToken cancellationToken = default);
+
+        Task<AudioTranscriptionRes> Translations(HttpClient _httpClient, AudioCreateTranscriptionReq req, string? accesstoken = null, CancellationToken cancellationToken = default);
     }
 }

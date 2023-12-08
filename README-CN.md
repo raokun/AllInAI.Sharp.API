@@ -3,6 +3,8 @@
 
 中文简介 | [English](README.md)
 
+[版本更新文档](/Changes/changes.md) | [接口示例文档](/Test/sampleUsage.md) 
+
 AllInAI.Sharp.API一款调用各大平台语言模型的SDK，能帮助使用者快速对接各大模型。已整合OpenAI，chatGLM，文心千帆，同义千问，stable-diffusion 等
 支持设置反向代理,支持流式接口
 AllInAI SDK 在聊天和图片接口中整合统一的入参和出参。方便调用。
