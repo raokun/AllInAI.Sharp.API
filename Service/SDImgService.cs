@@ -14,6 +14,13 @@ namespace AllInAI.Sharp.API.Service {
         public async Task<ImgRes> Txt2Img(HttpClient _httpClient, Txt2ImgReq req, string? accesstoken = null, CancellationToken cancellationToken = default) {
             string url = "/sdapi/v1/txt2img";
             SDImgReq dto = new SDImgReq();
+            if (!string.IsNullOrEmpty(req.Size)) {
+                var size = req.Size.Split("x");
+                if (size.Length > 1) {
+                    dto.width = long.Parse( size[0].ToString());
+                    dto.height = long.Parse(size[1].ToString());
+                }
+            }
             dto.prompt = req.Prompt;
             dto.steps = req.Steps;
             dto.batch_size = req.N;

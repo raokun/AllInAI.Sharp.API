@@ -7,6 +7,7 @@ using AllInAI.Sharp.API.Enums;
 using AllInAI.Sharp.API.Utils;
 using AllInAI.Sharp.API.Extensions;
 using System.Text.Json;
+using AI.Dev.OpenAI.GPT;
 
 namespace AllInAI.Sharp.API.Service
 {
@@ -27,6 +28,14 @@ namespace AllInAI.Sharp.API.Service
             using var response = _httpClient.PostAsStreamAsync(url, req, cancellationToken);
             await using var stream = await response.Content.ReadAsStreamAsync(cancellationToken);
             using var reader = new StreamReader(stream);
+            //计算token消耗
+            var totalMsg = "";
+            var promptTokens = 0;
+            foreach (var item in req.Messages)
+            {
+                promptTokens+= GPT3Tokenizer.Encode(item.Content).Count();
+            }
+            var completionTokens = 0;
             while (!reader.EndOfStream) {
                 cancellationToken.ThrowIfCancellationRequested();
 
@@ -47,6 +56,10 @@ namespace AllInAI.Sharp.API.Service
                     // When the response is good, each line is a serializable CompletionCreateRequest
                     res = JsonSerializer.Deserialize<CompletionRes>(line);
                     res.Result = res.Choices[0].Delta.Content;
+                    completionTokens+= GPT3Tokenizer.Encode(res.Choices[0].Delta.Content).Count();
+                    if(res.Usage == null) {
+                        res.Usage=new UsageRes() { CompletionTokens=completionTokens, PromptTokens =promptTokens,TotalTokens= promptTokens + completionTokens };
+                    }
                 }
                 catch (Exception) {
                     // When the API returns an error, it does not come back as a block, it returns a single character of text ("{").
