@@ -1,8 +1,10 @@
 ﻿# Version Changes
 
 ## Version
+### V1.1.7 NEW! 
+* 基于gpt-4-vision-preview的图文分析
 
-### V1.1.6 NEW! 
+### V1.1.6 
 * 优化stream流式输出时openai没有返回token消耗信息，使用openai的三方库计算token数返回。
 * 修改stable diffusion接口图片大小参数未生效bug
    

@@ -307,3 +307,25 @@ public async Task OpenAITranslationsTest() {
 }
 ```
 
+
+//图文分析
+        [TestMethod()]
+        public async Task Gpt4OpenAIcompletionsTest() {
+            AuthOption authOption = new AuthOption() { Key = "sk-****", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
+            ChatService chatService = new ChatService(authOption);
+            CompletionReq completionReq = new CompletionReq();
+            List<MessageDto> messages = new List<MessageDto>();
+            List<MessageContent>? Contents=new List<MessageContent>();
+            Contents.Add(MessageContent.TextContent("What’s in this image?"));
+            Contents.Add(MessageContent.ImageUrlContent("https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"));
+            messages.Add(new MessageDto() { Role = "user", Contents= Contents });
+            completionReq.Model = "gpt-4-vision-preview";
+            completionReq.Messages = messages;
+            var enumerable = chatService.CompletionStream(completionReq);
+            //接口返回的完整内容
+            string totalMsg = "";
+            await foreach (var item in enumerable) {
+                totalMsg += item.Result;
+            }
+        }
+

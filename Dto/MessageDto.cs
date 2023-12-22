@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -10,8 +11,30 @@ namespace AllInAI.Sharp.API.Dto {
     public class MessageDto {
         [JsonPropertyName("role")]
         public string Role { get; set; }
+         public string? Content { get; set; }
+
+        public IList<MessageContent>? Contents { get; set; }
+
+        /// <summary>
+        ///     The contents of the message.
+        /// </summary>
         [JsonPropertyName("content")]
-        public string Content { get; set; }
+        public object ContentCalculated {
+            get {
+                if (Content is not null && Contents is not null) {
+                    throw new ValidationException(
+                        "Content and Contents can not be assigned at the same time. One of them must be null."
+                    );
+                }
+
+                if (Content is not null) {
+                    return Content;
+                }
+
+                return Contents!;
+            }
+            set => Content = value?.ToString();
+        }
         /// <summary>
         ///     The name of the author of this message. May contain a-z, A-Z, 0-9, and underscores, with a maximum length of 64 characters.
         /// </summary>
