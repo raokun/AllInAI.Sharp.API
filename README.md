@@ -22,6 +22,7 @@ Install-Package AllInAI.Sharp.API
 - [X] Synonymous Qianwen 通义千问
 - [X] stable-diffusion
 - [ ] midjourney
+- [ ] pinecone
 
 ## Usage example
 
