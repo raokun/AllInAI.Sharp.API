@@ -11,8 +11,10 @@ namespace AllInAI.Sharp.API.Dto {
     public class MessageDto {
         [JsonPropertyName("role")]
         public string Role { get; set; }
-         public string? Content { get; set; }
+         [JsonIgnore]
+        public string? Content { get; set; }
 
+        [JsonIgnore] 
         public IList<MessageContent>? Contents { get; set; }
 
         /// <summary>

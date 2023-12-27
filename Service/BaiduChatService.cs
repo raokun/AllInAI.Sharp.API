@@ -60,6 +60,10 @@ public class BaiduChatService: IChatService
         }
     }
 
+    public Task<EmbeddingRes> Embedding(HttpClient _httpClient, EmbeddingReq req, string? accesstoken = null, CancellationToken cancellationToken = default) {
+        throw new NotImplementedException();
+    }
+
     private BaiduCompletionReq GetBaiduCompletionReq(CompletionReq req) {
         BaiduCompletionReq baidu = new BaiduCompletionReq();
         baidu.Messages = req.Messages;

@@ -1,7 +1,14 @@
 ﻿# Version Changes
 
 ## Version
-### V1.1.7 NEW! 
+### V1.2 NEW! 
+* 添加向量化数据接口，实现知识库扩展
+  * 1.添加 openai 文本嵌入接口embedding。用于文本向量化
+  * 2.添加pinecone 向量库接口支持
+  * 3.添加文本转向量存储和文本查询示例
+### V1.1.8 
+* 修复聊天接口升级产生的bug
+### V1.1.7 
 * 基于gpt-4-vision-preview的图文分析
 
 ### V1.1.6 

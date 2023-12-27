@@ -50,4 +50,12 @@ public class ChatService
     public IAsyncEnumerable<CompletionRes> CompletionStream(CompletionReq req) {
         return _chatService.CompletionStream(_httpClient, req, accessToken);
     }
+    /// <summary>
+    /// 数据向量化(目前只支持openai)
+    /// </summary>
+    /// <param name="req"></param>
+    /// <returns></returns>
+    public async Task<EmbeddingRes> Embedding(EmbeddingReq req) {
+        return await _chatService.Embedding(_httpClient, req, accessToken);
+    }
 }

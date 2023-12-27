@@ -9,9 +9,14 @@ English | [中文简介](https://github.com/raokun/AllInAI.Sharp.API/blob/main/R
 
 [Version](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Changes/changes.md) | [Usage](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Test/sampleUsage.md) 
 
-AllInAI.Sharp.API is an SDK that calls language models from various platforms, and it helps users quickly integrate with major models. It has integrated OpenAI, chatGLM, Wenxin Qianfan, Synonymous Qianwen, stable-diffusion, etc. It supports setting reverse proxies and streaming interfaces.
+AllInAI.Sharp.API is an SDK that calls language models from various platforms, and it helps users quickly integrate with major models. It has integrated OpenAI, chatGLM, Wenxin Qianfan, Synonymous Qianwen, stable-diffusion,pinecone， etc. It supports setting reverse proxies and streaming interfaces.
 The AllInAI SDK integrates unified input and output parameters in the chat and image interfaces, making it easy to call.
+Now, the SDK supports vector library extension, enabling fast implementation of local or cloud-based knowledge base functionality.
 
+AllInAI.Sharp.API一款调用各大平台语言模型的SDK，能帮助使用者快速对接各大模型和向量数据库。已整合OpenAI，chatGLM，文心千帆，同义千问，stable-diffusion，pinecone 等
+支持设置反向代理,支持流式接口
+AllInAI SDK 在聊天和图片接口中整合统一的入参和出参。方便调用。
+现在，SDK支持向量库扩展，可以快速实现本地或云端知识库功能。
 ```
 Install-Package AllInAI.Sharp.API
 ```
@@ -22,7 +27,7 @@ Install-Package AllInAI.Sharp.API
 - [X] Synonymous Qianwen 通义千问
 - [X] stable-diffusion
 - [ ] midjourney
-- [ ] pinecone
+- [X] pinecone
 
 ## Usage example
 
@@ -71,6 +76,8 @@ if(res.Data != null) {
 }
 
 ```
+
+
 ## How to contribute
 1. Fork & Clone
 2. Create a branch named Feature/name(your github id)/issuexxx

@@ -1,10 +1,10 @@
 ﻿# Usage example
 
-## 1.chat
+## 1. Chat
 
-### 1.Completion
+### 1. Completion
 
-#### 1.OpenAI
+#### 1. OpenAI
 
 ```c#
  public async Task OpenAIChatServiceTest() {
@@ -26,7 +26,7 @@
 }
 ```
 
-#### 2.文心千帆
+#### 2. 文心千帆
 
 ```c#
 public async Task BaiduCompletionTest() {
@@ -49,7 +49,7 @@ public async Task BaiduCompletionTest() {
     }
 }
 ```
-#### 3.通义千问
+#### 3. 通义千问
 
 ```c#
 public async Task AliCompletionTest() {
@@ -72,9 +72,9 @@ public async Task AliCompletionTest() {
 }
 ```
 
-### 1.Completion Stream
+### 2. Completion Stream
 
-#### 1.OpenAI
+#### 1. OpenAI
 
 ```c#
  public async Task OpenAICompletionStreamTest() {
@@ -94,7 +94,7 @@ public async Task AliCompletionTest() {
 }
 ```
 
-#### 2.文心千帆
+#### 2. 文心千帆
 
 ```c#
 public async Task BaiduCompletionStreamTest() {
@@ -117,7 +117,7 @@ public async Task BaiduCompletionStreamTest() {
     }
 }
 ```
-#### 3.通义千问
+#### 3. 通义千问
 
 ```c#
 public async Task AliCompletionStreamTest() {
@@ -139,11 +139,60 @@ public async Task AliCompletionStreamTest() {
 }
 ```
 
-## 1.image
+### 3. Image and text analysis
 
-### 1.creatImage
+#### 1. OpenAI
 
-#### 1.OpenAI
+```c#
+public async Task Gpt4OpenAIcompletionsTest() {
+    AuthOption authOption = new AuthOption() { Key = "sk-****", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
+    ChatService chatService = new ChatService(authOption);
+    CompletionReq completionReq = new CompletionReq();
+    List<MessageDto> messages = new List<MessageDto>();
+    List<MessageContent>? Contents=new List<MessageContent>();
+    Contents.Add(MessageContent.TextContent("What’s in this image?"));
+    Contents.Add(MessageContent.ImageUrlContent("https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"));
+    messages.Add(new MessageDto() { Role = "user", Contents= Contents });
+    completionReq.Model = "gpt-4-vision-preview";
+    completionReq.Messages = messages;
+    var enumerable = chatService.CompletionStream(completionReq);
+    //接口返回的完整内容
+    string totalMsg = "";
+    await foreach (var item in enumerable) {
+        totalMsg += item.Result;
+    }
+}
+```
+
+### 4. Embedding
+
+#### 1. OpenAI
+
+```c#
+public async Task EmbeddingTest() {
+    AuthOption authOption = new AuthOption() { Key = "sk-****", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
+    ChatService chatService = new ChatService(authOption);
+    EmbeddingReq req = new EmbeddingReq();
+    req.Model = "text-embedding-ada-002";
+    req.Input = "今天是2023年12月26日";
+    var res =await chatService.Embedding(req);
+    //接口返回的完整内容
+    if (res.Error != null) {
+        Console.WriteLine(res.Error.Message);
+    }
+    else {
+        Console.WriteLine(res);
+    }
+}
+```
+
+
+
+## 2. Image
+
+### 1. creatImage
+
+#### 1. OpenAI
 
 ```c#
 public async Task OpenAIImgTest() {
@@ -173,7 +222,7 @@ public async Task OpenAIImgTest() {
 }
 ```
 
-#### 2.文心千帆
+#### 2. 文心千帆
 
 ```c#
  public async Task BaiduImgTest() {
@@ -209,7 +258,7 @@ public async Task OpenAIImgTest() {
     }
 }
 ```
-#### 3.stable diffusion
+#### 3. stable diffusion
 
 ```c#
 public async Task SDImgTest() {
@@ -244,11 +293,11 @@ public async Task SDImgTest() {
 }
 ```
 
-## 1.audio
+## 3. Audio
 
-### 1.Speech
+### 1. Speech
 
-#### 1.OpenAI
+#### 1. OpenAI
 ```c#
 public async Task OpenAISpeechTest() {
     try {
@@ -269,9 +318,9 @@ public async Task OpenAISpeechTest() {
 }
 ```
 
-### 2.Transcriptions
+### 2. Transcriptions
 
-#### 1.OpenAI
+#### 1. OpenAI
 ```c#
 public async Task OpenAITranscriptionsTest() {
     try {
@@ -288,9 +337,9 @@ public async Task OpenAITranscriptionsTest() {
 }
 ```
 
-### 2.Translations
+### 3. Translations
 
-#### 1.OpenAI
+#### 1. OpenAI
 ```c#
 public async Task OpenAITranslationsTest() {
     try {
@@ -308,24 +357,301 @@ public async Task OpenAITranslationsTest() {
 ```
 
 
-//图文分析
-        [TestMethod()]
-        public async Task Gpt4OpenAIcompletionsTest() {
-            AuthOption authOption = new AuthOption() { Key = "sk-****", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
-            ChatService chatService = new ChatService(authOption);
-            CompletionReq completionReq = new CompletionReq();
-            List<MessageDto> messages = new List<MessageDto>();
-            List<MessageContent>? Contents=new List<MessageContent>();
-            Contents.Add(MessageContent.TextContent("What’s in this image?"));
-            Contents.Add(MessageContent.ImageUrlContent("https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"));
-            messages.Add(new MessageDto() { Role = "user", Contents= Contents });
-            completionReq.Model = "gpt-4-vision-preview";
-            completionReq.Messages = messages;
-            var enumerable = chatService.CompletionStream(completionReq);
-            //接口返回的完整内容
-            string totalMsg = "";
-            await foreach (var item in enumerable) {
-                totalMsg += item.Result;
+
+## 4.Vector
+
+### 1. ListIndexes
+
+```c#
+[TestMethod()]
+public async Task PineconeListIndexesTest() {
+    try {
+        string namespacename = "gcp-starter";// Your ENVIRONMENT
+        string baseUrl = $"https://controller.{namespacename}.pinecone.io/databases";
+        AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorService = new VectorService(authOption);
+        var res = await vectorService.ListIndexes();
+    }
+    catch (Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+}
+```
+
+### 2. CreateIndex
+
+```c#
+[TestMethod()]
+public async Task PineconeCreateIndexTest() {
+    try {
+        var indexName = "test-index";
+        string namespacename = "gcp-starter";// Your ENVIRONMENT
+        string baseUrl = $"https://controller.{namespacename}.pinecone.io/databases";
+        AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorService = new VectorService(authOption);
+        await vectorService.CreateIndex(indexName,1536, Metric.Cosine);
+    }
+    catch (Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+}
+```
+
+### 3. DeleteIndex
+
+```c#
+[TestMethod()]
+public async Task PineconeDeleteIndexTest() {
+    try {
+        var indexName = "test-index";
+        string namespacename = "gcp-starter";// Your ENVIRONMENT
+        string baseUrl = $"https://controller.{namespacename}.pinecone.io/databases";
+        AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorService = new VectorService(authOption);
+        await vectorService.DeleteIndex(indexName);
+    }
+    catch (Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+}
+```
+
+### 4. DescribeIndex
+
+```c#
+[TestMethod()]
+public async Task PineconeDescribeIndexTest() {
+    try {
+        var indexName = "test-index";
+        string namespacename = "gcp-starter";// Your ENVIRONMENT
+        string baseUrl = $"https://controller.{namespacename}.pinecone.io/databases";
+        AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorService = new VectorService(authOption);
+        var res = await vectorService.DescribeIndex(indexName);
+    }
+    catch (Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+}
+```
+
+### 5. ConfigureIndex
+
+```c#
+[TestMethod()]
+public async Task PineconeConfigureIndexTest() {
+    try {
+        var indexName = "test-index";
+        string namespacename = "gcp-starter";// Your ENVIRONMENT
+        string baseUrl = $"https://controller.{namespacename}.pinecone.io/databases";
+        AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorService = new VectorService(authOption);
+        await vectorService.ConfigureIndex(indexName,1);
+    }
+    catch (Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+}
+```
+
+### 6. DescribeIndex
+
+```c#
+[TestMethod()]
+        public async Task PineconeDescribeIndexStatsTest() {
+            try {
+                var host = "your host";
+                string baseUrl = $"https://{host}";
+                AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+                VectorService vectorService = new VectorService(authOption);
+                var res=await vectorService.DescribeIndexStats();
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
             }
         }
+```
+
+### 7. Upsert
+
+```c#
+[TestMethod()]
+        public async Task PineconeUpsertTest() {
+            try {
+                var host = "your host";
+                string baseUrl = $"https://{host}";
+                AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+                VectorService vectorService = new VectorService(authOption);
+                string namespacename = "test-namespace";
+                var first = new VectorDto {
+                    Id = "first1",
+                    // Zeroed-out placeholder vector, this is where you put the embeddings unless using sparse vectors
+                    Values = new float[1536],
+                    Metadata = new() {
+                        ["new"] = true,
+                        ["price"] = 50,
+                        ["tags"] = new string[] { "tag1", "tag2" }
+                    }
+                };
+
+                var second = new VectorDto {
+                    Id = "second2",
+                    Values = new float[1536],
+                    Metadata = new() { ["price"] = 100 }
+                };
+                var req = new VectorUpsertReq {
+                    Vectors = new[] { first , second },
+                    Namespace = namespacename ?? ""
+                };
+                var json = System.Text.Json.JsonSerializer.Serialize(req);
+                var res = await vectorService.Upsert(req);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+        }
+```
+
+### 8. Update
+
+```c#
+[TestMethod()]
+        public async Task PineconeUpdateTest() {
+            try {
+                var host = "your host";
+                string baseUrl = $"https://{host}";
+                AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+                VectorService vectorService = new VectorService(authOption);
+                VectorUpdateReq req = new VectorUpdateReq() { Id = "second", Values = null, SetMetadata = new() { ["price"] = 101 } ,Namespace= "test-namespace" };
+                await vectorService.Update(req);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+        }
+```
+
+### 9. Query
+
+```c#
+[TestMethod()]
+public async Task PineconeQueryTest() {
+    try {
+        var host = "your host";
+        string baseUrl = $"https://{host}";
+        AuthOption authOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorService = new VectorService(authOption);
+        var priceRange = new MetadataMap {
+            ["price"] = new MetadataMap {
+                ["$gte"] = 75,
+                ["$lte"] = 125
+            }
+        };
+        VectorQueryReq req = new VectorQueryReq() { Vector = new float[1536], TopK = 3, IncludeMetadata = true, Filter = priceRange };
+
+        var res = await vectorService.Query(req);
+        var g = res.Matches.SelectMany(v => v.Metadata!);
+    }
+    catch (Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+}
+```
+
+
+
+## 5. Use for KnowledgeBase
+
+### 1.Upsert Data
+
+```c#
+[TestMethod()]
+public async Task KnowledgeBaseTest() {
+    try {
+        //文本转向量
+        AuthOption authOption = new AuthOption() { Key = "sk-****", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
+        ChatService chatService = new ChatService(authOption);
+        EmbeddingReq req = new EmbeddingReq();
+        req.Model = "text-embedding-ada-002";
+        req.Input = "今天是2023年12月26日";
+        var embeddingOgj = await chatService.Embedding(req);
+        //接口返回的完整内容
+        if (embeddingOgj.Error != null) {
+            Console.WriteLine(embeddingOgj.Error.Message);
+            return;
+        }
+        else {
+            Console.WriteLine(embeddingOgj);
+        }
+        if (!(embeddingOgj.Data.Count() > 0)) {
+            return;
+        }
+        //获取向量库
+        //1.查询向量库
+        var indexName = "test-index";
+        string namespacename = "gcp-starter";// Your ENVIRONMENT
+        string baseUrl = $"https://controller.{namespacename}.pinecone.io";
+        AuthOption vectorAuthOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorBaseService = new VectorService(vectorAuthOption);
+        var indexRes = await vectorBaseService.DescribeIndex(indexName);
+        if(indexRes.Status.Host == null) {
+            return;
+        }
+        embeddingOgj.Data.ForEach(async embedding => {
+            //添加向量
+            string hostUrl = $"https://{indexRes.Status.Host}";
+            VectorService vectorService = new VectorService(vectorAuthOption);
+            string openaispace = "openaispace";
+            var dto = new VectorDto() { Id = "first1", Values = embedding.Embedding,Metadata= new() { ["input"] = req.Input } };
+            var upsertReq = new VectorUpsertReq {
+                Vectors = new[] { dto },
+                Namespace = openaispace ?? ""
+            };
+            var json = System.Text.Json.JsonSerializer.Serialize(upsertReq);
+            var res = await  vectorService.Upsert(upsertReq);
+        });
+
+    } catch (Exception ex) {
+        Console.WriteLine(ex.Message);
+    }
+}
+```
+
+
+
+### 2. Query Data
+
+```c#
+[TestMethod]
+public async Task chatQuerytest() {
+    try {
+        //文本转向量
+        AuthOption authOption = new AuthOption() { Key = "sk-****", BaseUrl = "https://api.openai.com", AIType = Enums.AITypeEnum.OpenAi };
+        ChatService chatService = new ChatService(authOption);
+        EmbeddingReq req = new EmbeddingReq();
+        req.Model = "text-embedding-ada-002";
+        req.Input = "今天是几年几月几号";
+        var embeddingOgj = await chatService.Embedding(req);
+        var host = "your host";
+        string baseUrl = $"https://{host}";
+        AuthOption vectorAuthOption = new AuthOption() { Key = "your API Key", BaseUrl = baseUrl, AIType = Enums.AITypeEnum.Pinecone };
+        VectorService vectorService = new VectorService(authOption);
+
+        embeddingOgj.Data.ForEach(async embedding => {
+            string openaispace = "test-namespace";
+            var queryReq = new VectorQueryReq {
+                Vector = embedding.Embedding,
+                TopK=1,
+                Namespace = openaispace ?? ""
+            };
+            var json = System.Text.Json.JsonSerializer.Serialize(queryReq);
+            var res = await vectorService.Query(queryReq);
+        });
+    }
+    catch (Exception ex) 
+    { 
+        Console.WriteLine(ex.Message); 
+    }
+}
+```
 

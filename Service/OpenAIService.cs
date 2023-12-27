@@ -73,6 +73,12 @@ namespace AllInAI.Sharp.API.Service
             }
         }
 
+        public async Task<EmbeddingRes> Embedding(HttpClient _httpClient, EmbeddingReq req, string? accesstoken = null, CancellationToken cancellationToken = default) {
+            string url = "/v1/embeddings";
+            EmbeddingRes res = await _httpClient.PostAndReadAsAsync<EmbeddingRes>(url, req, cancellationToken);
+            return res;
+        }
+
         private async Task<OpenAICompletionRes> ChatCompletions(HttpClient _httpClient,OpenAICompletionReq req)
         {
             

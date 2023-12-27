@@ -74,6 +74,10 @@ public class AliChatService: IChatService
         }
     }
 
+    public Task<EmbeddingRes> Embedding(HttpClient _httpClient, EmbeddingReq req, string? accesstoken = null, CancellationToken cancellationToken = default) {
+        throw new NotImplementedException();
+    }
+
     private CompletionRes GetCompletion(AliCompletionRes completionRes) {
         CompletionRes res = new CompletionRes();
         if (completionRes != null) {

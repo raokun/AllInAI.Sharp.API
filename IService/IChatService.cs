@@ -24,5 +24,15 @@ namespace AllInAI.Sharp.API.IService {
         /// <param name="req"></param>
         /// <returns></returns>
         IAsyncEnumerable<CompletionRes> CompletionStream(HttpClient _httpClient,CompletionReq req, string? accesstoken = null, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 数据向量化
+        /// </summary>
+        /// <param name="_httpClient"></param>
+        /// <param name="req"></param>
+        /// <param name="accesstoken"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<EmbeddingRes> Embedding(HttpClient _httpClient, EmbeddingReq req, string? accesstoken = null, CancellationToken cancellationToken = default);
     }
 }

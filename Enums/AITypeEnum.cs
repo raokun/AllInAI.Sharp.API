@@ -10,6 +10,7 @@ namespace AllInAI.Sharp.API.Enums {
         Baidu =2,
         Ali=3,
         SD=4,
-        MJ=5
+        MJ=5,
+        Pinecone=6
     }
 }
