@@ -22,10 +22,10 @@ namespace AllInAI.Sharp.API.Req {
         public  string Namespace { get; init; }
     }
     public record VectorUpdateReq {
-        public required string Id { get; init; }
-        public required float[] Values { get; init; }
-        public SparseVector? SparseValues { get; init; }
-        public MetadataMap? SetMetadata { get; init; }
-        public string Namespace { get; init; }
+        public required string? Id { get; set; }
+        public  float[]? Values { get; set; }
+        public SparseVector? SparseValues { get; set; }
+        public MetadataMap? SetMetadata { get; set; }
+        public string? Namespace { get; set; }
     }
 }

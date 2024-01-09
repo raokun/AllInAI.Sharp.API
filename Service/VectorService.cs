@@ -25,6 +25,11 @@ namespace AllInAI.Sharp.API.Service {
             _httpClient.BaseAddress = new Uri(option.BaseUrl);
             _httpClient.Timeout = TimeSpan.FromSeconds(30);
             switch (option.AIType) {
+                case AITypeEnum.Pgvector:
+                    _vectorService = new PgvectorVectorService();
+                    _httpClient.DefaultRequestHeaders.Add("Api-Key", $"{option.Key}");
+
+                    break;
                 case AITypeEnum.Pinecone:
                 default:
                     _vectorService = new PineconeVectorService();

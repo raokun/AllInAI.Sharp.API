@@ -8,7 +8,7 @@
 
 [版本更新文档](/Changes/changes.md) | [接口示例文档](/Test/sampleUsage.md) 
 
-AllInAI.Sharp.API一款调用各大平台语言模型的SDK，能帮助使用者快速对接各大模型和向量数据库。已整合OpenAI，chatGLM，文心千帆，同义千问，stable-diffusion，pinecone 等
+AllInAI.Sharp.API一款调用各大平台语言模型的SDK，能帮助使用者快速对接各大模型和向量数据库。已整合OpenAI，chatGLM，文心千帆，同义千问，stable-diffusion，pinecone,pgvector 等
 支持设置反向代理,支持流式接口
 AllInAI SDK 在聊天和图片接口中整合统一的入参和出参。方便调用。
 现在，SDK支持向量库扩展，可以快速实现本地或云端知识库功能。
@@ -24,6 +24,7 @@ Install-Package AllInAI.Sharp.API
 - [X] stable-diffusion
 - [ ] midjourney
 - [X] pinecone
+- [X] pgvector
 
 ## 使用范例
 ### 1.设置基础配置：

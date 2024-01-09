@@ -11,6 +11,7 @@ namespace AllInAI.Sharp.API.Enums {
         Ali=3,
         SD=4,
         MJ=5,
-        Pinecone=6
+        Pinecone=6,
+        Pgvector=7
     }
 }
