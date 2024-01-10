@@ -1,7 +1,9 @@
 ﻿# Version Changes
 
 ## Version
-### V1.2.1 NEW! 
+### V1.2.2 NEW! 
+  * openai 图片接口添加dallE-3模型支持
+### V1.2.1 
   * 添加向量化数据接口添加pgvector支持
 ### V1.2 
   * 添加向量化数据接口，实现知识库扩展

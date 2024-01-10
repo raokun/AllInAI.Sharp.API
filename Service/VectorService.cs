@@ -51,8 +51,8 @@ namespace AllInAI.Sharp.API.Service {
             return _vectorService.CreateIndex(_httpClient, name, dimension, metric);
         }
 
-        public Task Delete(MetadataMap filter, string? indexNamespace = null) {
-            return _vectorService.Delete(_httpClient, filter, indexNamespace);
+        public Task Delete(VectorDeleteReq req) {
+            return _vectorService.Delete(_httpClient, req);
         }
 
         public  Task DeleteCollection(string name) {

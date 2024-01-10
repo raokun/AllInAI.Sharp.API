@@ -7,7 +7,7 @@
 
 English | [中文简介](https://github.com/raokun/AllInAI.Sharp.API/blob/main/README-CN.md)
 
-[Version](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Changes/changes.md) | [Usage](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Test/sampleUsage.md) 
+[Update Document](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Changes/changes.md) | [Usage](https://github.com/raokun/AllInAI.Sharp.API/blob/main/Test/sampleUsage.md) 
 
 AllInAI.Sharp.API is an SDK that calls language models from various platforms, and it helps users quickly integrate with major models. It has integrated OpenAI, chatGLM, Wenxin Qianfan, Synonymous Qianwen, stable-diffusion,pinecone，pgvector etc. It supports setting reverse proxies and streaming interfaces.
 The AllInAI SDK integrates unified input and output parameters in the chat and image interfaces, making it easy to call.

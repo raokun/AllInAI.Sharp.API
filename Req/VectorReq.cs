@@ -1,4 +1,5 @@
 ﻿using AllInAI.Sharp.API.Dto;
+using AllInAI.Sharp.API.Res;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,5 +28,11 @@ namespace AllInAI.Sharp.API.Req {
         public SparseVector? SparseValues { get; set; }
         public MetadataMap? SetMetadata { get; set; }
         public string? Namespace { get; set; }
+    }
+    public record VectorDeleteReq
+    {
+        public MetadataMap Filter { get; init; }
+
+        public string? IndexNamespace { get; init; }
     }
 }

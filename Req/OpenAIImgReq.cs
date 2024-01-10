@@ -17,5 +17,12 @@ namespace AllInAI.Sharp.API.Req {
         public string? ResponseFormat { get; set; }
         [JsonPropertyName("user")]
         public string? User { get; set; }
+        [JsonPropertyName("model")]
+        public string? Model { get; set; }
+        [JsonPropertyName("quality")]
+        public string? Quality { get; set; }
+
+        [JsonPropertyName("style")]
+        public string? Style { get; set; }
     }
 }

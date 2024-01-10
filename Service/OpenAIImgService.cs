@@ -18,8 +18,10 @@ namespace AllInAI.Sharp.API.Service {
             openAIImgReq.N=req.N;
             openAIImgReq.Size = req.Size;
             openAIImgReq.ResponseFormat=req.ResponseFormat;
+            openAIImgReq.Model=req.Model;
+            openAIImgReq.Quality = req.Quality;
+            openAIImgReq.Style = req.Style;
             ImgRes completionRes = await _httpClient.PostAndReadAsAsync<ImgRes>(url, openAIImgReq, cancellationToken);
-            
             return completionRes;
         }
     }

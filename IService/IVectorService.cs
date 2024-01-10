@@ -72,7 +72,7 @@ namespace AllInAI.Sharp.API.IService {
         /// <param name="filter"></param>
         /// <param name="indexNamespace"></param>
         /// <returns></returns>
-        Task<string> Delete(HttpClient _httpClient,MetadataMap filter, string? indexNamespace = null);
+        Task<string> Delete(HttpClient _httpClient, VectorDeleteReq req);
         Task<VectorUpsertRes> Upsert(HttpClient _httpClient,VectorUpsertReq req);
 
         Task Update(HttpClient _httpClient, VectorUpdateReq req);

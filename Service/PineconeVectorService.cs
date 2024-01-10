@@ -49,10 +49,9 @@ namespace AllInAI.Sharp.API.Service {
             await _httpClient.PostAndReadAsStringAsync(url, content, default);
         }
 
-        public async Task<string> Delete(HttpClient _httpClient, MetadataMap filter, string? indexNamespace = null) {
+        public async Task<string> Delete(HttpClient _httpClient, VectorDeleteReq req) {
             string url = "/vectors/delete";
-            var content = new { filter, indexNamespace };
-            return await _httpClient.PostAndReadAsAsync<string>(url, content, default);
+            return await _httpClient.PostAndReadAsAsync<string>(url, req, default);
         }
 
         public async Task DeleteCollection(HttpClient _httpClient, string name) {

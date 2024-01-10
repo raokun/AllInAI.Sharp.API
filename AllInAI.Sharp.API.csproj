@@ -21,7 +21,7 @@ AllInAI SDK 在聊天和图片接口中整合统一的入参和出参。方便�
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.1</Version>
+    <Version>1.2.2-preview</Version>
     <RepositoryUrl>https://github.com/raokun/AllInAI.Sharp.API</RepositoryUrl>
   </PropertyGroup>
 
