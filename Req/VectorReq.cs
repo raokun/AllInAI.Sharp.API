@@ -19,8 +19,8 @@ namespace AllInAI.Sharp.API.Req {
         public  bool IncludeMetadata { get; init; }
     }
     public record VectorUpsertReq {
-        public  IEnumerable<VectorDto> Vectors { get; init; }
-        public  string Namespace { get; init; }
+        public  IEnumerable<VectorDto> Vectors { get; set; }
+        public  string Namespace { get; set; }
     }
     public record VectorUpdateReq {
         public required string? Id { get; set; }
