@@ -12,11 +12,11 @@ namespace AllInAI.Sharp.API.Req {
         public string? Id { get; set; }
         public float[]? Vector { get; set; }
         public SparseVector? SparseVector { get; set; }
-        public  uint TopK { get; init; }
-        public MetadataMap? Filter { get; init; }
-        public  string Namespace { get; init; }
-        public  bool IncludeValues { get; init; }
-        public  bool IncludeMetadata { get; init; }
+        public  uint TopK { get; set; }
+        public MetadataMap? Filter { get; set; }
+        public  string Namespace { get; set; }
+        public  bool IncludeValues { get; set; }
+        public  bool IncludeMetadata { get; set; }
     }
     public record VectorUpsertReq {
         public  IEnumerable<VectorDto> Vectors { get; set; }
